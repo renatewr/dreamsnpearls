@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Waypoint from 'react-waypoint'
 
+import Script from "react-load-script";
 import Header from '../components/Header'
 import Nav from '../components/Nav'
 import pic01 from '../assets/images/pic01.jpg'
@@ -15,6 +16,21 @@ class Index extends React.Component {
       stickyNav: false
     }
   }
+
+  handleScriptLoad() {
+    if (typeof window !== `undefined` && window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+    window.netlifyIdentity.init();
+  }
+
+
 
   _handleWaypointEnter= () => {
     this.setState(() => ({ stickyNav: false }));
@@ -28,6 +44,10 @@ class Index extends React.Component {
 
     return (
       <div>
+      <Script
+          url="https://identity.netlify.com/v1/netlify-identity-widget.js"
+          onLoad={() => this.handleScriptLoad()}
+        />
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
 
         <Header />
