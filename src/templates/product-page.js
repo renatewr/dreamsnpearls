@@ -1,11 +1,10 @@
 import React from 'react';
 import graphql from 'graphql';
 import Features from '../components/Features';
-import Testimonials from '../components/Testimonials';
-import Pricing from '../components/Pricing';
+
 
 export const ProductPageTemplate = ({
-  image, title, heading, description, intro, main, testimonials, fullImage, pricing,
+  image, title, heading, description, intro, main, fullImage,
 }) => (
   <section className="section section--gradient">
     <div className="container">
@@ -75,14 +74,10 @@ export const ProductPageTemplate = ({
                   </div>
                 </div>
               </div>
-              <Testimonials testimonials={testimonials} />
               <div
                 className="full-width-image-container"
                 style={{ backgroundImage: `url(${fullImage})` }}
               />
-              <h2 className="has-text-weight-semibold is-size-2">{pricing.heading}</h2>
-              <p className="is-size-5">{pricing.description}</p>
-              <Pricing data={pricing.plans} />
             </div>
           </div>
         </div>
@@ -103,9 +98,7 @@ export default ({ data }) => {
       description={frontmatter.description}
       intro={frontmatter.intro}
       main={frontmatter.main}
-      testimonials={frontmatter.testimonials}
       fullImage={frontmatter.full_image}
-      pricing={frontmatter.pricing}
     />
   );
 };
@@ -123,6 +116,7 @@ export const productPageQuery = graphql`
           blurbs {
             image
             text
+            price
           }
           heading
           description
@@ -143,21 +137,7 @@ export const productPageQuery = graphql`
             image
           }
         }
-        testimonials {
-          author
-          quote
-        }
-        full_image
-        pricing {
-          heading
-          description
-          plans {
-            description
-            items
-            plan
-            price
-          }
-        }
+        full_image  
       }
     }
   }

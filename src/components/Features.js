@@ -1,18 +1,24 @@
 import React from 'react';
 
 const FeatureGrid = ({ gridItems }) => (
-  <div className="columns is-multiline">
+  <section className="main special">
+  <ul className="features">
     {gridItems.map(item => (
-      <div key={item.image} className="column is-6">
-        <section className="section">
-          <p className="has-text-centered">
+      <li key={item.image}>
+          <p className="">
             <img alt="" src={item.image} />
           </p>
-          <p>{item.text}</p>
-        </section>
-      </div>
+          <h3>{item.text}</h3>
+          <p>{item.price}</p>        
+      </li>
     ))}
-  </div>
+    </ul>
+    <footer className="major">
+      <ul className="actions">
+        <li>Something here?</li>
+      </ul>
+    </footer>
+  </section>
 );
 
 export default FeatureGrid;

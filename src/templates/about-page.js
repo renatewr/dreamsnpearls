@@ -8,7 +8,7 @@ import Helmet from 'react-helmet'
 
 import HeaderGeneric from '../components/HeaderGeneric'
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+export const AboutPageTemplate = ({ title, content, contentComponent, image }) => {
   const PageContent = contentComponent || Content;
 
   return (
@@ -34,6 +34,7 @@ export default ({ data }) => {
     contentComponent={HTMLContent}
     title={post.frontmatter.title}
     content={post.html}
+    image={post.frontmatter.image}
   />);
 };
 
