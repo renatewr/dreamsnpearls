@@ -48,16 +48,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                 }
               }
               full_image
-              pricing {
-                heading
-                description
-                plans {
-                  description
-                  items
-                  plan
-                  price
-                }
-              }
             }
           }
         }
