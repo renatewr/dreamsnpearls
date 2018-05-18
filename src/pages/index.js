@@ -71,7 +71,7 @@ class Index extends React.Component {
                 adipiscing magna etiam amet veroeros. Lorem ipsum dolor tempus sit cursus.
                 Tempus nisl et nullam lorem ipsum dolor sit amet aliquam.</p>
                 <ul className="actions">
-                  <li><Link to="/generic" className="button">Learn More</Link></li>
+                  <li><Link to="/about" className="button">Learn More</Link></li>
                 </ul>
               </div>
               <span className="image"><img src={pic01} alt="" /></span>
@@ -101,7 +101,7 @@ class Index extends React.Component {
             </ul>
             <footer className="major">
               <ul className="actions">
-                <li><Link to="/generic" className="button">Learn More</Link></li>
+                <li><Link to="/products" className="button">Learn More</Link></li>
               </ul>
             </footer>
           </section>
