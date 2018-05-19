@@ -46,30 +46,35 @@ export const ProductPageTemplate = ({
                   <div className="tile">
                     <div className="tile is-parent is-vertical">
                       <article className="tile is-child">
-                        <img
+                      <span className="image main">
+                      <img
                           style={{ borderRadius: '5px' }}
                           src={main.image1.image}
                           alt={main.image1.alt}
                         />
+                        </span>
                       </article>
                     </div>
                     <div className="tile is-parent">
                       <article className="tile is-child">
+                      <span className="image main">
                         <img
                           style={{ borderRadius: '5px' }}
                           src={main.image2.image}
                           alt={main.image2.alt}
                         />
+                        </span>
                       </article>
                     </div>
                   </div>
                   <div className="tile is-parent">
                     <article className="tile is-child">
-                      <img
+                      <span className="image main"><img
                         style={{ borderRadius: '5px' }}
                         src={main.image3.image}
                         alt={main.image3.alt}
                       />
+                      </span>
                     </article>
                   </div>
                 </div>
