@@ -1,4 +1,6 @@
-const path = require("path");
+const _ = require('lodash')
+const path = require("path")
+const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
@@ -78,19 +80,15 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 exports.onCreateNode = ({
   node,
   getNode,
-  loadNodeContent,
   boundActionCreators,
 }) => {
-  const { frontmatter } = node
-  if (frontmatter) {
-    const { image } = frontmatter
-    if (image) {
-      if (image.indexOf('/img') === 0) {
-        frontmatter.image = path.relative(
-          path.dirname(node.fileAbsolutePath),
-          path.join(__dirname, '/static/', image)
-        )
-      }
-    }
+  const { createNodeField } = boundActionCreators
+  if (node.internal.type === 'MarkdownRemark') {
+    const value = createFilePath({ node, getNode})
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
   }
 }
