@@ -6,7 +6,7 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 
-import HeaderGeneric from '../components/HeaderGeneric'
+import HeaderGeneric from '../components/Header'
 
 export const AboutPageTemplate = ({ title, content, contentComponent, image }) => {
   const PageContent = contentComponent || Content;

@@ -24,7 +24,7 @@
     "react-scrollspy": "^3.3.5",
     "react-waypoint": "^8.0.1"
   },
-  "homepage": "https://github.com/ChangoMan/gatsby-starter-stellar",
+  "homepage": "https://github.com/renatewr/dreamsnpearls",
   "keywords": [
     "gatsby"
   ],
@@ -32,7 +32,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ChangoMan/gatsby-starter-stellar.git"
+    "url": "https://github.com/renatewr/dreamsnpearls.git"
   },
   "scripts": {
     "dev": "gatsby develop",

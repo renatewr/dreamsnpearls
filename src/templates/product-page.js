@@ -1,12 +1,16 @@
 import React from 'react';
 import graphql from 'graphql';
 import Features from '../components/Features';
+import HeaderGeneric from '../components/Header'
+import Helmet from 'react-helmet'
 
 
 export const ProductPageTemplate = ({
   image, title, heading, description, intro, main, fullImage,
 }) => (
-  <section className="section section--gradient">
+  <div>
+  <Helmet title={title} />
+  <HeaderGeneric />
     <div className="container">
       <div className="section">
         <div className="columns">
@@ -35,38 +39,8 @@ export const ProductPageTemplate = ({
                 </div>
               </div>
               <Features gridItems={intro.blurbs} />
-              <div className="columns">
-                <div className="column is-7">
-                  <h3 className="has-text-weight-semibold is-size-3">{main.heading}</h3>
-                  <p>{main.description}</p>
-                </div>
-              </div>
               <div className="tile is-ancestor">
                 <div className="tile is-vertical">
-                  <div className="tile">
-                    <div className="tile is-parent is-vertical">
-                      <article className="tile is-child">
-                      <span className="image main">
-                      <img
-                          style={{ borderRadius: '5px' }}
-                          src={main.image1.image}
-                          alt={main.image1.alt}
-                        />
-                        </span>
-                      </article>
-                    </div>
-                    <div className="tile is-parent">
-                      <article className="tile is-child">
-                      <span className="image main">
-                        <img
-                          style={{ borderRadius: '5px' }}
-                          src={main.image2.image}
-                          alt={main.image2.alt}
-                        />
-                        </span>
-                      </article>
-                    </div>
-                  </div>
                   <div className="tile is-parent">
                     <article className="tile is-child">
                       <span className="image main"><img
@@ -88,7 +62,7 @@ export const ProductPageTemplate = ({
         </div>
       </div>
     </div>
-  </section>
+  </div>
 );
 
 export default ({ data }) => {
